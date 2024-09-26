@@ -14,14 +14,16 @@ const User: any = {
 };
 
 export function Budget(category: String, amount: Number) {
-    let amt;
+  let amt;
   let budget = User.Budget;
+  if (amount >= User.currentIncome) {
+    return `Unable to set the budget as budegt is more than our income`;
+  }
   budget.filter((item: any) => {
     if (item.category == category) {
-       item.allocated_amt = amount;
-       amt = item.allocated_amt;
+      item.allocated_amt = amount;
+      amt = item.allocated_amt;
     }
-  }
-);
-return `groceries budget:${amt}`
+  });
+  return `groceries budget:${amt}`;
 }
