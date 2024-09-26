@@ -13,6 +13,15 @@ const User: any = {
   ],
 };
 
-export function Budget(category: string, amount: number) {
-  return;
+export function Budget(category: String, amount: Number) {
+    let amt;
+  let budget = User.Budget;
+  budget.filter((item: any) => {
+    if (item.category == category) {
+       item.allocated_amt = amount;
+       amt = item.allocated_amt;
+    }
+  }
+);
+return `groceries budget:${amt}`
 }
