@@ -1,1 +1,5 @@
 node_modules
+budget.js
+budget.test.js
+individualTransaction.js
+individualTransaction.test.js
