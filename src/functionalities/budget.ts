@@ -27,3 +27,9 @@ export function Budget(category: String, amount: Number) {
   });
   return `groceries budget:${amt}`;
 }
+
+export function updateBudget(category:string, amount:Number){
+     let budget = User.Budget;
+     budget.push({category:category, allocated_amt:amount})
+     return `updated:${budget[budget.length-1]}`
+}
