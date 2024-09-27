@@ -3,9 +3,9 @@ const User: any = {
   password: 123,
   currentIncome: 25000,
   Budget: [
-    { category: "groceries", allocated_amt: 2000 },
-    { category: "entertainment", allocated_amt: 4000 },
-    { category: "rent", allocated_amt: 6000 },
+    { category: "groceries", allocated_amt: 2000, spent:0 },
+    { category: "entertainment", allocated_amt: 4000, spent:0 },
+    { category: "rent", allocated_amt: 6000,spent:0},
   ],
   savings: [
     { title: "emergency fund", target_amt: 10000, current_amt_saved: 5000 },
@@ -44,4 +44,7 @@ export function updateBudget(category: string, amount: Number) {
     return `updated:${budget[budget.length - 1]}`;
   }
 }
-updateBudget("rent", 2000);
+
+export function budgetSpent(category:string, spentAmount:Number){
+    
+}
