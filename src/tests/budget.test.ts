@@ -11,8 +11,8 @@ describe("Should set and track the budgets different categories",()=>{
     test('should update the budget', ()=>{
         expect(updateBudget('currentbill', 1000)).toBe(`updated:${{category: 'currentbill', allocated_amt: 1000}}`)
     })
-    // test('should update the budget of catergory when we try to add same category instead of adding again',()=>{
-    //     expect(updateBudget('rent',28000)).toBe(`updated:${{category: 'rent', allocated_amt: 28000}}`)
-    // })
+    test('should update the budget of catergory when we try to add same category instead of adding again',()=>{
+        expect(updateBudget('rent',28000)).toBe(`updated:${{category: 'rent', allocated_amt: 28000}}`)
+    })
     
 })
