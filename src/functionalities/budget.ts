@@ -28,8 +28,20 @@ export function Budget(category: String, amount: Number) {
   return `groceries budget:${amt}`;
 }
 
-export function updateBudget(category:string, amount:Number){
-     let budget = User.Budget;
-     budget.push({category:category, allocated_amt:amount})
-     return `updated:${budget[budget.length-1]}`
+export function updateBudget(category: string, amount: Number) {
+  let budget = User.Budget;
+  let amt;
+  if (budget.some((item: { category: string }) => item.category === category)) {
+    budget.filter((item: any) => {
+      if (item.category == category) {
+        item.allocated_amt = amount;
+        amt = item.allocated_amt;
+      }
+    });
+    return `updated:${{ category: category, allocated_amt: amt }}`;
+  } else {
+    budget.push({ category: category, allocated_amt: amount });
+    return `updated:${budget[budget.length - 1]}`;
+  }
 }
+updateBudget("rent", 2000);
