@@ -10,5 +10,6 @@
     savings: [
       { title: "emergency fund", target_amt: 6000, current_amt_saved: 5000 },
       { title: "trip", target_amt: 3000, current_amt_saved: 1000 },
+      { title: "bike", target_amt: 1000, current_amt_saved: 0 },
     ],
   };
