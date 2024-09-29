@@ -1,4 +1,5 @@
 import { addGoal } from "../functionalities/goals"
+import { checkProgress } from "../functionalities/goals"
 describe("should check the users saving goals",()=>{
     test("should able to add a saving goal",()=>{
         expect(addGoal("function",2000,1000)).toBe(`New goal was added successfully`)
@@ -10,6 +11,6 @@ describe("should check the users saving goals",()=>{
 
 describe('should check the progress towards the goal',()=>{
     test("should check the progress towards the emergency fund",()=>{
-        
+        expect(checkProgress("emergency fund")).toBe(`yeah! you need to save ${1000} more rupees`)
     })
 })
