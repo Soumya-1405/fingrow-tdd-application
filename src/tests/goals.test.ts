@@ -13,4 +13,10 @@ describe('should check the progress towards the goal',()=>{
     test("should check the progress towards the emergency fund",()=>{
         expect(checkProgress("emergency fund")).toBe(`yeah! you need to save ${1000} more rupees`)
     })
+    test("should check the progress towards the trip fund",()=>{
+        expect(checkProgress("trip")).toBe(`yeah! you need to save ${2000} more rupees`)
+    })
+    test("should check if the currenly saved amount is nothing",()=>{
+        expect(checkProgress("bike")). toBe(`you haven't saved for your goal`)
+    })
 })
