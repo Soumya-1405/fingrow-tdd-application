@@ -1,5 +1,6 @@
 import { Budget } from "../functionalities/budget";
 import { updateBudget } from "../functionalities/budget";
+import { budgetSpent } from "../functionalities/budget";
 
 describe("Should set and track the budgets different categories",()=>{
     test("should set the budget for specific category", ()=>{
@@ -12,7 +13,12 @@ describe("Should set and track the budgets different categories",()=>{
         expect(updateBudget('currentbill', 1000)).toBe(`updated:${{category: 'currentbill', allocated_amt: 1000}}`)
     })
     test('should update the budget of catergory when we try to add same category instead of adding again',()=>{
-        expect(updateBudget('rent',28000)).toBe(`updated:${{category: 'rent', allocated_amt: 28000}}`)
+        expect(updateBudget('rent',2000)).toBe(`updated:${{category: 'rent', allocated_amt: 2000}}`)
     })
-    
+    test("should check how  much amount we spent",()=>{
+        expect(budgetSpent('entertainment',1000)).toBe(`spentAmount:${{category: 'entertainment', spent: 1000}}`)
+    })
+    test("should check when spent amount is exceeds the allocated amount",()=>{
+        expect(budgetSpent("groceries",5000)).toBe("you can't update the allocated amount")
+    })
 })
