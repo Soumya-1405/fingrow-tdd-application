@@ -33,6 +33,5 @@ export function checkProgress(title: string) {
     )
   ) {
   }
-  console.log("tgcb", leftAmount);
   return `yeah! you need to save ${leftAmount} more rupees`;
 }
