@@ -48,7 +48,7 @@ export function budgetSpent(category: string, spentAmount: number) {
     });
   }
   if (f == 1) {
-    return `you can't update the allocated amount`;
+    return `oh shit! you exceeds your budget amount`;
   } else {
     return `spentAmount:${{
       category: category,

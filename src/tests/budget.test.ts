@@ -19,6 +19,6 @@ describe("Should set and track the budgets different categories",()=>{
         expect(budgetSpent('entertainment',1000)).toBe(`spentAmount:${{category: 'entertainment', spent: 1000}}`)
     })
     test("should check when spent amount is exceeds the allocated amount",()=>{
-        expect(budgetSpent("groceries",5000)).toBe("you can't update the allocated amount")
+        expect(budgetSpent("groceries",5000)).toBe("oh shit! you exceeds your budget amount")
     })
 })
