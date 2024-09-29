@@ -19,19 +19,22 @@ export function addGoal(
 
 export function checkProgress(title: string) {
   let leftAmount;
-  if (
-    User.savings.some(
-      (item: {
-        title: string;
-        target_amt: number;
-        current_amt_saved: number;
-      }) => {
-        if (item.title === title) {
-          leftAmount = item.target_amt - item.current_amt_saved;
+  let f = 0;
+  if (User.savings.some((item: { title: string }) => item.title === title)) {
+    console.log(title);
+    User.savings.filter((item: any) => {
+      if (item.title == title) {
+        leftAmount = item.target_amt - item.current_amt_saved;
+        f = 0;
+        if (leftAmount == item.target_amt) {
+          f = 1;
         }
       }
-    )
-  ) {
+    });
   }
-  return `yeah! you need to save ${leftAmount} more rupees`;
+  if (f == 0) {
+    return `yeah! you need to save ${leftAmount} more rupees`;
+  } else {
+    return `you haven't saved for your goal`;
+  }
 }
