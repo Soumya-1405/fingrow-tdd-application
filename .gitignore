@@ -8,3 +8,5 @@ userData.js
 goals.test.js
 financialReport.js
 financialReport.test.js
+alert.js
+alert.test.js
