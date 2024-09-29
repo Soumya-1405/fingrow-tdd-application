@@ -9,3 +9,7 @@ export function addGoal(title:string, target_amt:number, current_amt_saved:numbe
         return `New goal was added successfully`
     }
 }
+
+export function checkProgress(title:string){
+
+}
