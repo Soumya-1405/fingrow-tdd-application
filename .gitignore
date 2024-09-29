@@ -5,3 +5,4 @@ individualTransaction.js
 individualTransaction.test.js
 goals.js
 userData.js
+goals.test.js
