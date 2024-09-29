@@ -3,9 +3,9 @@ const User: any = {
   password: 123,
   currentIncome: 25000,
   Budget: [
-    { category: "groceries", allocated_amt: 2000, spent:0 },
-    { category: "entertainment", allocated_amt: 4000, spent:0 },
-    { category: "rent", allocated_amt: 6000,spent:0},
+    { category: "groceries", allocated_amt: 2000, spent: 0 },
+    { category: "entertainment", allocated_amt: 4000, spent: 0 },
+    { category: "rent", allocated_amt: 6000, spent: 0 },
   ],
   savings: [
     { title: "emergency fund", target_amt: 10000, current_amt_saved: 5000 },
@@ -40,11 +40,34 @@ export function updateBudget(category: string, amount: Number) {
     });
     return `updated:${{ category: category, allocated_amt: amt }}`;
   } else {
-    budget.push({ category: category, allocated_amt: amount });
+    budget.push({ category: category, allocated_amt: amount, spent: 0 });
     return `updated:${budget[budget.length - 1]}`;
   }
 }
 
-export function budgetSpent(category:string, spentAmount:Number){
-    
+export function budgetSpent(category: string, spentAmount: number) {
+  let budget = User.Budget;
+  let amt;
+  let f = 0;
+  if (budget.some((item: { category: string }) => item.category === category)) {
+    budget.filter((item: any) => {
+      if (item.category == category) {
+        if (spentAmount > item.allocated_amt) {
+          f = 1;
+        }
+        item.spent = item.spent + spentAmount;
+        amt = item.allocated_amt;
+      }
+    });
+  }
+  if (f == 1) {
+    return `you can't update the allocated amount`;
+  } else {
+    return `spentAmount:${{
+      category: category,
+      allocated_amt: amt,
+      spentAmount: spentAmount,
+    }}`;
+  }
 }
+// budgetSpent("entertainment", 1000);
